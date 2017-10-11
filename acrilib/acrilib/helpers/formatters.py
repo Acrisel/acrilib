@@ -6,7 +6,7 @@ Created on Sep 21, 2017
 import logging
 from copy import copy
 from datetime import datetime
-from acrilog.utils import get_hostname, get_ip_address
+from acrilib import get_hostname, get_ip_address
 
 class LoggerAddHostFilter(logging.Filter):
     """
