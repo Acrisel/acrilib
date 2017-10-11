@@ -4,7 +4,7 @@ Created on Oct 11, 2017
 @author: arnon
 '''
 
-class PrintLog(object):
+class LogSim(object):
     def __init__(self, file=None):
         self.file = file
         if file:

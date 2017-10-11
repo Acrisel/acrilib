@@ -10,3 +10,4 @@ from .idioms.mediator import Mediator
 
 from .helpers.formatters import LoggerAddHostFilter, LevelBasedFormatter, MicrosecondsDatetimeFormatter
 from .helpers.handlers import TimedSizedRotatingHandler, HierarchicalTimedSizedRotatingHandler, get_file_handler
+from .helpers.logsim import LogSim
