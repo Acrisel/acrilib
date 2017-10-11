@@ -1,0 +1,6 @@
+pexpect
+openpyxl
+
+[dev]
+
+[test]
