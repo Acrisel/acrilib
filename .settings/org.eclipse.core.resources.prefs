@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+encoding//acrilib/helpers/handlers.py=utf-8
+encoding//acrilib/idioms/data_types.py=utf-8
+encoding//acrilib/idioms/mediator.py=utf-8
+encoding//acrilib/idioms/observer.py=utf-8
+encoding//acrilib/idioms/sequence.py=utf-8
+encoding//acrilib/idioms/singleton.py=utf-8
+encoding//acrilib/idioms/threaded.py=utf-8
