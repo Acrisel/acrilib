@@ -17,6 +17,7 @@ class LoggerAddHostFilter(logging.Filter):
 
         if not hasattr(record, 'host'):
             record.host = get_hostname()
+        if not hasattr(record, 'host'):
             record.ip = get_ip_address()
         return True
 
