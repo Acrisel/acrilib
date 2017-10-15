@@ -51,3 +51,7 @@ def hostname_resolves(hostname):
 
 if __name__ == '__main__':
     print(get_free_port())
+    print(get_ip_address())
+    print(get_hostname())
+    
+    
