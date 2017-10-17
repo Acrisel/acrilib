@@ -44,7 +44,7 @@ example
         class ThreadedExample(object):
             @threaded
             def proc(self, id_, num, stall):
-                s=num
+                s = num
                 while num > 0:
                     print("%s: %s" % (id_, s))
                     num -= 1
@@ -60,23 +60,23 @@ example output
     .. code-block:: python
 
         print("starting workers")
-        te1=ThreadedExample().proc('TE1', 3, 1)
-        te2=ThreadedExample().proc('TE2', 3, 1)
+        te1 = ThreadedExample().proc('TE1', 3, 1)
+        te2 = ThreadedExample().proc('TE2', 3, 1)
     
         print("collecting results")
-        te1_callback=RetriveAsycValue('te1')
+        te1_callback = RetriveAsycValue('te1')
         te1.addCallback(te1_callback)
-        te2_callback=RetriveAsycValue('te2')
+        te2_callback = RetriveAsycValue('te2')
         te2.addCallback(te2_callback)
     
         print('joining t1')
         te1.join()
         print('joined t1')
         print('%s callback result: %s' % (te1_callback.name, te1_callback.result))
-        result=te1.syncResult()
+        result = te1.syncResult()
         print('te1 syncResult : %s' %result)
     
-        result=te2.syncResult()
+        result = te2.syncResult()
         print('te2 syncResult : %s' % result)
         print('%s callback result: %s' % (te2_callback.name, te2_callback.result))
 
@@ -117,7 +117,7 @@ Singleton example
             step_id=0
     
             def __call__(self):
-                step_id=self.step_id
+                step_id = self.step_id
                 self.step_id += 1
                 return step_id  
 
@@ -148,13 +148,13 @@ NamedSingleton example
         from acris import Singleton
 
         class Sequence(NamedSingleton):
-            step_id=0
+            step_id = 0
             
             def __init__(self, name=''):
-                self.name=name
+                self.name = name
     
             def __call__(self,):
-                step_id=self.step_id
+                step_id = self.step_id
                 self.step_id += 1
                 return step_id  
 
@@ -163,10 +163,10 @@ example output
 
     .. code-block:: python
  
-        A=Sequence('A')
+        A = Sequence('A')
         print(A.name, A())
         print(A.name, A())
-        B=Sequence('B')
+        B = Sequence('B')
         print(B.name, B()) 
 
     will produce:
@@ -189,16 +189,16 @@ example
 
         from acris import Sequence
 
-        A=Sequence('A')
+        A = Sequence('A')
         print('A', A())
         print('A', A())
-        B=Sequence('B')
+        B = Sequence('B')
         print('B', B()) 
     
-        A=Sequence('A')
+        A = Sequence('A')
         print('A', A())
         print('A', A())
-        B=Sequence('B')
+        B = Sequence('B')
         print('B', B()) 
 
 example output
@@ -233,23 +233,23 @@ traced_method
     
         from acris import traced_method
 
-        traced=traced_method(print, print_args=True, print_result=True)
+        traced = traced_method(print, print_args=True, print_result=True)
 
         class Oper(object):
             def __init__(self, value):
-                self.value=value
+                self.value = value
         
             def __repr__(self):
                 return str(self.value)
         
             @traced
             def mul(self, value):
-                self.value*=value 
+                self.value *= value 
                 return self   
     
             @traced
             def add(self, value):
-                self.value+=value
+                self.value += value
                 return self
     
         o=Oper(3)
@@ -312,8 +312,8 @@ Example
                 yield i
                 i += 1
 
-        n=10
-        m=Mediator(yrange(n))
+        n = 10
+        m = Mediator(yrange(n))
         for i in range(n):
             print(i, m.has_next(3), next(m))
         print(i, m.has_next(), next(m))
