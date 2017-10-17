@@ -1,8 +1,15 @@
 eclipse.preferences.version=1
+encoding//acrilib/__init__.py=utf-8
 encoding//acrilib/idioms/data_types.py=utf-8
+encoding//acrilib/idioms/decorate.py=utf-8
+encoding//acrilib/idioms/digraph.py=utf-8
 encoding//acrilib/idioms/mediator.py=utf-8
 encoding//acrilib/idioms/observer.py=utf-8
+encoding//acrilib/idioms/osutil.py=utf-8
 encoding//acrilib/idioms/sequence.py=utf-8
 encoding//acrilib/idioms/singleton.py=utf-8
+encoding//acrilib/idioms/synchronize.py=utf-8
 encoding//acrilib/idioms/threaded.py=utf-8
+encoding//acrilib/logging/formatters.py=utf-8
 encoding//acrilib/logging/handlers.py=utf-8
+encoding//acrilib/logging/logsim.py=utf-8

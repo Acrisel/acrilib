@@ -7,15 +7,10 @@ acrilib.egg-info/SOURCES.txt
 acrilib.egg-info/dependency_links.txt
 acrilib.egg-info/requires.txt
 acrilib.egg-info/top_level.txt
-acrilib/helpers/__init__.py
-acrilib/helpers/formatters.py
-acrilib/helpers/handlers.py
-acrilib/helpers/logsim.py
 acrilib/idioms/__init__.py
 acrilib/idioms/data_types.py
 acrilib/idioms/decorate.py
 acrilib/idioms/digraph.py
-acrilib/idioms/formatters.py
 acrilib/idioms/mediator.py
 acrilib/idioms/observer.py
 acrilib/idioms/osutil.py
@@ -23,3 +18,7 @@ acrilib/idioms/sequence.py
 acrilib/idioms/singleton.py
 acrilib/idioms/synchronize.py
 acrilib/idioms/threaded.py
+acrilib/logging/__init__.py
+acrilib/logging/formatters.py
+acrilib/logging/handlers.py
+acrilib/logging/logsim.py
