@@ -29,6 +29,7 @@ from copy import copy
 from datetime import datetime
 from acrilib import get_hostname, get_ip_address
 
+
 class LoggerAddHostFilter(logging.Filter):
     """
     This is filter adds host information to LogRecord.
@@ -42,6 +43,7 @@ class LoggerAddHostFilter(logging.Filter):
             record.ip = get_ip_address()
         return True
 
+
 class MicrosecondsDatetimeFormatter(logging.Formatter):
     def formatTime(self, record, datefmt=None):
         ct = datetime.fromtimestamp(record.created)
@@ -52,11 +54,11 @@ class MicrosecondsDatetimeFormatter(logging.Formatter):
         if datefmt is not None:
             s = ct.strftime(datefmt)
         else:
-            #print('MicrosecondsDatetimeFormatter:', repr(ct),)
             t = ct.strftime("%Y-%m-%d %H:%M:%S")
             s = "%s.%03d" % (t, record.msecs)
             
         return s
+
 
 class LevelBasedFormatter(logging.Formatter):
     
@@ -75,10 +77,8 @@ class LevelBasedFormatter(logging.Formatter):
         self.datefmt = datefmt  
         self.formats = dict([(level, MicrosecondsDatetimeFormatter(fmt=fmt, datefmt=self.datefmt)) for level, fmt in formats.items()])
         self.default_format = self.formats['default']  
-        #super(LevelBasedFormatter, self).__init__() # fmt=self.default_format, datefmt=self.datefmt)
 
     def format(self, record):
         formatter = self.formats.get(record.levelno, self.default_format,)
-        #print('LevelBasedFormatter:', formatter)
         result = formatter.format(record)
         return result
