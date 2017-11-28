@@ -202,12 +202,14 @@ class HierarchicalTimedSizedRotatingHandler(Handler):
 
         handlers = list()
         for record_key in keys:
+            print('HierarchicalTimedSizedRotatingHandler: record key', record_key)
             key_handlers = self.__handlers.get(record_key,)
             # avoid getting dedicated handler when in consolidated mode
             # and record with name equal to the global.
             # and record_key != self.name
             need_handler = key_handlers is None
             if need_handler:
+                print('HierarchicalTimedSizedRotatingHandler: adding handler for key', record_key)
                 key_handlers = [get_file_handler(*self.handler_args,
                                                  name=record_key,
                                                  **self.handler_kwargs)]
