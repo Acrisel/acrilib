@@ -201,7 +201,6 @@ class HierarchicalTimedSizedRotatingHandler(Handler):
                 left_key = left_key.rpartition(self.separator)[0]
 
         print('HierarchicalTimedSizedRotatingHandler: record key', record_key)
-        print('HierarchicalTimedSizedRotatingHandler: record key', record_key)
         handlers = list()
         for record_key in keys:
 
