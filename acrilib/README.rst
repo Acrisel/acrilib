@@ -338,13 +338,18 @@ Example Output
             print(i, m.has_next(), next(m))
           File "/private/var/acrisel/sand/acris/acris/acris/acris/mediator.py", line 38, in __next__
             value=next(self.generator)
-        StopIteration       
+        StopIteration   
         
+
+setup tools
+===========
+    
+Methods to use in standard python environment
      
 Change History
 ==============
 
-Version 1.0.2
+Version 1.0
 -------------
 
     1. Initial publication to open source

@@ -1,3 +1,11 @@
+'''
+Created on Nov 16, 2017
+
+@author: arnon
+'''
+import re
+
+text = """
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
@@ -35,6 +43,19 @@ from .logging.handlers import TimedSizedRotatingHandler, HierarchicalTimedSizedR
 from .logging.logsim import LogSim
 
 from .setup.setup_utils import read_authors, read_meta_or_file, read_version
-from .setup.setup_utils import existing_package, find_packages, read, find_meta
+from .setup.setup_utils import is_overlay, find_packages, read, find_meta
 
-__version__='1.0.4'
+__version__ = '1.0.4'
+"""
+
+tripple = r'^__version__[ ]*=[ ]*((\'\'\'(?P<text1>(.*\n*)*?)\'\'\')|("""(?P<text2>(.*\n*)*?)"""))'
+single = '^__version__[ ]*=[ ]*((\'(?P<text1>(.*\n*)*?)\')|("(?P<text2>(.*\n*)*?)"))'
+
+re_meta_tripple = re.compile(tripple, re.M)
+re_meta_single = re.compile(single, re.M)
+
+tmatch = re_meta_tripple.search(text)
+smatch = re_meta_single.search(text)
+
+print(tmatch)
+print(smatch)

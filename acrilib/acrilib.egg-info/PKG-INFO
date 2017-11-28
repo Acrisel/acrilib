@@ -1,11 +1,12 @@
 Metadata-Version: 1.1
 Name: acrilib
-Version: 1.0.2
-Summary: acrilib is a python library of programming patterns that we use, at acrisel, in Python projects and choose to contribute to Python community
+Version: 1.0.4
+Summary: acrilib is a python library of programming patterns commonly used in Python
 Home-page: https://github.com/Acrisel/acrilib
 Author: Acrisel Team
 Author-email: support@acrisel.com
 License: MIT
+Description-Content-Type: UNKNOWN
 Description: =======
         acrilib
         =======
@@ -346,13 +347,18 @@ Description: =======
                     print(i, m.has_next(), next(m))
                   File "/private/var/acrisel/sand/acris/acris/acris/acris/mediator.py", line 38, in __next__
                     value=next(self.generator)
-                StopIteration       
+                StopIteration   
                 
+        
+        setup tools
+        ===========
+            
+        Methods to use in standard python environment
              
         Change History
         ==============
         
-        Version 1.0.2
+        Version 1.0
         -------------
         
             1. Initial publication to open source

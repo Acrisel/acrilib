@@ -7,18 +7,14 @@ import importlib.util
 is the Python package in your project. It's the top-level folder containing the
 __init__.py module that should be in the same directory as your setup.py file
 /-
-  |-- README.rst
-  |-- CHANGES
-  |-- AUTHORS
-  |-- LICENSE
-  |-- setup.py
-  |-- <package-name>
-  |  |-- __init__.py
-  |  |-- <some-program>.py
-  |  |-- bin
-  |  |   |-- <some executables (.py or others)>
-  |  |-- <internal package folders>
-  |  |   |-- <some-program.py> 
+  |- README.rst
+  |- CHANGES
+  |- AUTHORS
+  |- LICENSE
+  |- setup.py
+  |- package-name
+     |- __init__.py
+     |- some-program.py
 
 To create package and upload:
 
@@ -54,8 +50,7 @@ URL = 'https://github.com/Acrisel/acrilib'
 VERSION = setup_utils.read_version(metahost=metahost)
 
 # Find previous installation and warn. See #18115.
-if "install" in sys.argv:
-    existing_path = setup_utils.existing_package(PACKAGE)
+existing_path = setup_utils.is_overlay(PACKAGE)
 
 scripts = setup_utils.scripts(PACKAGE)
 

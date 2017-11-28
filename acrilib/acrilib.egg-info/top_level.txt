@@ -1,3 +1,5 @@
-acrilib/idioms
 acrilib
+acrilib/concepts
+acrilib/idioms
 acrilib/logging
+acrilib/setup

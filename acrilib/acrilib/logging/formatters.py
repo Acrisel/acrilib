@@ -81,4 +81,5 @@ class LevelBasedFormatter(logging.Formatter):
     def format(self, record):
         formatter = self.formats.get(record.levelno, self.default_format,)
         result = formatter.format(record)
+        # print('result formatter:', result)
         return result
