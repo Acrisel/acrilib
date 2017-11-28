@@ -200,9 +200,11 @@ class HierarchicalTimedSizedRotatingHandler(Handler):
                 keys.append(left_key)
                 left_key = left_key.rpartition(self.separator)[0]
 
+        print('HierarchicalTimedSizedRotatingHandler: record key', record_key)
+        print('HierarchicalTimedSizedRotatingHandler: record key', record_key)
         handlers = list()
         for record_key in keys:
-            print('HierarchicalTimedSizedRotatingHandler: record key', record_key)
+
             key_handlers = self.__handlers.get(record_key,)
             # avoid getting dedicated handler when in consolidated mode
             # and record with name equal to the global.
@@ -220,6 +222,7 @@ class HierarchicalTimedSizedRotatingHandler(Handler):
         record = self.prepare(record)
 
         if record:
+            print('HierarchicalTimedSizedRotatingHandler: msg:', record.msg)
             for handler in list(set(handlers)):
                 # This check is not in the parent class
                 # TODO: check if needed handler.level
