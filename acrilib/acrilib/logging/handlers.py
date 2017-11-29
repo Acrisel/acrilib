@@ -190,15 +190,17 @@ class HierarchicalTimedSizedRotatingHandler(Handler):
         except KeyError:
             record_key = ''
 
-        keys = [record_key]
-        if self.consolidate:
-            keys.append(self.consolidate)
         if self.separator is not None:
             keys = []
             left_key = record_key
             while left_key:
                 keys.append(left_key)
                 left_key = left_key.rpartition(self.separator)[0]
+        else:
+            keys = [record_key]
+
+        if self.consolidate:
+            keys.append(self.consolidate)
 
         print('HierarchicalTimedSizedRotatingHandler: record key', record_key)
         handlers = list()
