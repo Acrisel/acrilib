@@ -221,7 +221,7 @@ class HierarchicalTimedSizedRotatingHandler(Handler):
         record = self.prepare(record)
 
         if record:
-            print('HierarchicalTimedSizedRotatingHandler: header count:', len(handlers),'msg:', record.msg)
+            # print('HierarchicalTimedSizedRotatingHandler: header count:', len(handlers),'msg:', record.msg)
             for handler in list(set(handlers)):
                 # This check is not in the parent class
                 # TODO: check if needed handler.level
