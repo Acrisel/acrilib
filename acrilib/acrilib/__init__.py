@@ -27,6 +27,8 @@ from .idioms.sequence import Sequence
 from .idioms.data_types import MergedChainedDict
 from .idioms.synchronize import Synchronization, SynchronizeAll, dont_synchronize, do_synchronize, synchronized
 from .idioms.mediator import Mediator
+from .idioms.complex_mapping import FlatDict
+from .idioms.expandvars import expandmap
 
 from .idioms.osutil import get_free_port, get_ip_address, get_hostname, hostname_resolves
 

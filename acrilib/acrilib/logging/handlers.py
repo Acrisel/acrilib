@@ -202,7 +202,7 @@ class HierarchicalTimedSizedRotatingHandler(Handler):
         if self.consolidate:
             keys.append(self.consolidate)
 
-        print('HierarchicalTimedSizedRotatingHandler: record key', record_key)
+        # print('HierarchicalTimedSizedRotatingHandler: record key', record_key)
         handlers = list()
         for record_key in keys:
 
@@ -212,7 +212,7 @@ class HierarchicalTimedSizedRotatingHandler(Handler):
             # and record_key != self.name
             need_handler = key_handlers is None
             if need_handler:
-                print('HierarchicalTimedSizedRotatingHandler: adding handler for key', record_key)
+                # print('HierarchicalTimedSizedRotatingHandler: adding handler for key', record_key)
                 key_handlers = [get_file_handler(*self.handler_args,
                                                  name=record_key,
                                                  **self.handler_kwargs)]
