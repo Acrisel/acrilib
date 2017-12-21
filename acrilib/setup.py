@@ -54,6 +54,7 @@ URL = 'https://github.com/Acrisel/acrilib'
 VERSION = setup_utils.read_version(metahost=metahost)
 
 # Find previous installation and warn. See #18115.
+existing_path = None
 if "install" in sys.argv:
     existing_path = setup_utils.existing_package(PACKAGE)
 
