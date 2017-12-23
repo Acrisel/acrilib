@@ -104,7 +104,7 @@ def FlatDict(ordered=False, case_sensative=True, separator='.'):
 
         def __copy__(self):
             return type(self)(self.store)
-        
+
         def copy(self):
             return self.__copy__()
 
@@ -218,6 +218,9 @@ if __name__ == '__main__':
                     "schema": "play",
                 },
             }}}
+
+    fd = FlatDict()(d)
+    print(repr(fd))
 
     key = 'EVENTOR.DATABASEs.pgdb1.drivername'
     for ordered, case_sensative in set(combinations([True, False, True, False], 2)):

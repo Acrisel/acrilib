@@ -47,24 +47,33 @@ class LoggerAddHostFilter(logging.Filter):
 class MicrosecondsDatetimeFormatter(logging.Formatter):
     def formatTime(self, record, datefmt=None):
         ct = datetime.fromtimestamp(record.created)
-        
-        if ct is  None:
-            ct=datetime.now()
-            
+
+        if ct is None:
+            ct = datetime.now()
+
         if datefmt is not None:
             s = ct.strftime(datefmt)
         else:
             t = ct.strftime("%Y-%m-%d %H:%M:%S")
             s = "%s.%03d" % (t, record.msecs)
-            
+
         return s
 
 
 class LevelBasedFormatter(logging.Formatter):
-    
+    '''
     defaults={
         logging.DEBUG : u"%(asctime)-15s: %(process)-7s: %(levelname)-7s: %(message)s: %(module)s.%(funcName)s(%(lineno)d)",
         'default' : u"%(asctime)-15s: %(process)-7s: %(levelname)-7s: %(message)s",
+        }
+    '''
+    
+    defaults = {
+        logging.DEBUG: (u'[ %(asctime)-15s ][ %(levelname)-7s ][ %(host)s ]'
+                        '[ %(processName)-11s ][ %(message)s ]'
+                        '[ %(module)s.%(funcName)s(%(lineno)d) ]'),
+        'default': (u'[ %(asctime)-15s ][ %(levelname)-7s ][ %(host)s ]'
+                  '[ %(processName)-11s ][ %(message)s ]'),
         }
  
     def __init__(self, level_formats={}, datefmt=None):
@@ -73,13 +82,15 @@ class LevelBasedFormatter(logging.Formatter):
         if level_formats:
             formats = copy(LevelBasedFormatter.defaults)
             formats.update(level_formats)
-            
+
         self.datefmt = datefmt  
         self.formats = dict([(level, MicrosecondsDatetimeFormatter(fmt=fmt, datefmt=self.datefmt)) for level, fmt in formats.items()])
         self.default_format = self.formats['default']  
 
     def format(self, record):
         formatter = self.formats.get(record.levelno, self.default_format,)
-        result = formatter.format(record)
-        # print('result formatter:', result)
+        try:
+            result = formatter.format(record)
+        except Exception:
+            raise
         return result

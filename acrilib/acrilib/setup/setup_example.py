@@ -21,7 +21,13 @@ To create package and upload:
   python setup.py register
   python setup.py sdist
   twine upload -s dist/path/to/gz
-
+  
+  or:
+  
+  python setup.py sdist bdist_wheel
+  twine register dist/project_name-x.y.z.tar.gz
+  twine register dist/mypkg-0.1-py2.py3-none-any.whl
+  twine upload -s dist/*
 '''
 
 

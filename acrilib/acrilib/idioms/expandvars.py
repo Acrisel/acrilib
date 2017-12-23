@@ -59,7 +59,7 @@ def calculate_ranks(depends, rank):
 
 def find_iner_dependencies(map_):
     global _varprog
-    
+
     depends = dict()
     no_depends = dict()
     for k, v in list(map_.items()):
