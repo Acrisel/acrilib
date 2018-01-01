@@ -36,7 +36,4 @@ from .logging.formatters import LoggerAddHostFilter, LevelBasedFormatter, Micros
 from .logging.handlers import TimedSizedRotatingHandler, HierarchicalTimedSizedRotatingHandler, get_file_handler
 from .logging.logsim import LogSim
 
-from .setup.setup_utils import read_authors, read_meta_or_file, read_version
-from .setup.setup_utils import existing_package, find_packages, read, find_meta
-
-__version__='1.0.4'
+__version__='1.0.5'
