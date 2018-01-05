@@ -350,7 +350,7 @@ Change History
 ==============
 
 Version 1.0
--------------
+------------
 
     1. Initial publication to open source
 

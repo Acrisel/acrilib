@@ -18,7 +18,7 @@ __init__.py module that should be in the same directory as your setup.py file
   |  |-- bin
   |  |   |-- <some executables (.py or others)>
   |  |-- <internal package folders>
-  |  |   |-- <some-program.py> 
+  |  |   |-- <some-program.py>
 
 To create package and upload:
 

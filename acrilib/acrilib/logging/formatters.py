@@ -28,6 +28,21 @@ import logging
 from copy import copy
 from datetime import datetime
 from acrilib import get_hostname, get_ip_address
+import logging
+
+
+def logging_record_add_host():
+    old_factory = logging.getLogRecordFactory()
+
+    def record_factory(*args, **kwargs):
+        record = old_factory(*args, **kwargs)
+        if not hasattr(record, 'host'):
+            record.host = get_hostname()
+        if not hasattr(record, 'ip'):
+            record.ip = get_ip_address()
+        return record
+
+    logging.setLogRecordFactory(record_factory)
 
 
 class LoggerAddHostFilter(logging.Filter):
@@ -39,7 +54,7 @@ class LoggerAddHostFilter(logging.Filter):
 
         if not hasattr(record, 'host'):
             record.host = get_hostname()
-        if not hasattr(record, 'host'):
+        if not hasattr(record, 'ip'):
             record.ip = get_ip_address()
         return True
 
@@ -67,7 +82,7 @@ class LevelBasedFormatter(logging.Formatter):
         'default' : u"%(asctime)-15s: %(process)-7s: %(levelname)-7s: %(message)s",
         }
     '''
-    
+
     defaults = {
         logging.DEBUG: (u'[ %(asctime)-15s ][ %(levelname)-7s ][ %(host)s ]'
                         '[ %(processName)-11s ][ %(message)s ]'
@@ -75,7 +90,7 @@ class LevelBasedFormatter(logging.Formatter):
         'default': (u'[ %(asctime)-15s ][ %(levelname)-7s ][ %(host)s ]'
                   '[ %(processName)-11s ][ %(message)s ]'),
         }
- 
+
     def __init__(self, level_formats={}, datefmt=None):
         super(LevelBasedFormatter, self).__init__()
         formats = LevelBasedFormatter.defaults
@@ -83,9 +98,10 @@ class LevelBasedFormatter(logging.Formatter):
             formats = copy(LevelBasedFormatter.defaults)
             formats.update(level_formats)
 
-        self.datefmt = datefmt  
-        self.formats = dict([(level, MicrosecondsDatetimeFormatter(fmt=fmt, datefmt=self.datefmt)) for level, fmt in formats.items()])
-        self.default_format = self.formats['default']  
+        self.datefmt = datefmt
+        self.formats = dict([(level, MicrosecondsDatetimeFormatter(fmt=fmt, datefmt=self.datefmt))
+                             for level, fmt in formats.items()])
+        self.default_format = self.formats['default']
 
     def format(self, record):
         formatter = self.formats.get(record.levelno, self.default_format,)

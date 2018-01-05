@@ -63,6 +63,13 @@ scripts = setup_utils.scripts(PACKAGE)
 # Find all sub packages
 packages = setup_utils.packages(PACKAGE)
 
+LONG_DESCRIPTION = setup_utils.read("README.rst")
+
+# Note: use install_required.py to get content of install required.
+# It cannot be automatically generated since it some
+# of packages within virtualenv are derivative of others.
+required = setup_utils.read_required(metahost=metahost)
+
 setup_info = {
     'name': NAME,
     'version': VERSION,
@@ -70,13 +77,13 @@ setup_info = {
     'author': AUTHORS,
     'author_email': AUTHOR_EMAILS,
     'description': DESCRIPTION,
-    'long_description': open("README.rst", "r").read(),
+    'long_description': LONG_DESCRIPTION,
     'license': 'MIT',
     'keywords': ('library sequence logger yield singleton thread synchronize'
                  ' resource pool utilities os ssh xml excel mail'),
     'packages': packages,
     'scripts': scripts,
-    'install_requires': [],
+    'install_requires': required,
     'extras_require': {'dev': [], 'test': []},
     'classifiers': [
         'Development Status :: 5 - Production/Stable',

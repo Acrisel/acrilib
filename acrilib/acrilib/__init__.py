@@ -33,7 +33,8 @@ from .idioms.expandvars import expandmap
 from .idioms.osutil import get_free_port, get_ip_address, get_hostname, hostname_resolves
 
 from .logging.formatters import LoggerAddHostFilter, LevelBasedFormatter, MicrosecondsDatetimeFormatter
+from .logging.formatters import logging_record_add_host
 from .logging.handlers import TimedSizedRotatingHandler, HierarchicalTimedSizedRotatingHandler, get_file_handler
 from .logging.logsim import LogSim
 
-__version__='1.0.5'
+__version__='1.0.6'
