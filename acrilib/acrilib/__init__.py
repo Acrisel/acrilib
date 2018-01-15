@@ -37,4 +37,4 @@ from .logging.formatters import logging_record_add_host
 from .logging.handlers import TimedSizedRotatingHandler, HierarchicalTimedSizedRotatingHandler, get_file_handler
 from .logging.logsim import LogSim
 
-__version__='1.0.6'
+__version__='1.0.7'
